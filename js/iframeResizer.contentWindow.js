@@ -829,6 +829,7 @@
 			}
 		};
 
+
 	function getScrollBarWidth () {
 		var inner = document.createElement('p');
 		inner.style.width = "100%";
