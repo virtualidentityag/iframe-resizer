@@ -784,9 +784,9 @@
 				// if horizontal scrollbar exists add dimensions of scrollbar to calculated height
 				if(document.documentElement.scrollWidth > document.documentElement.offsetWidth) {
 					var scrollBarWidth = getScrollBarWidth();
-					return this.documentElementOffset() + scrollBarWidth;
+					return this.documentElementScroll() + scrollBarWidth;
 				} else {
-					return this.documentElementOffset();
+					return this.documentElementScroll();
 				}
 			}
 		},
@@ -1096,7 +1096,11 @@
 		}
 	}
 
-	addEventListener(window, 'message', receiver);
+	// use window load event to get finale iframe dimensions
+	window.onload = function () {
+		addEventListener(window, 'message', receiver);
+	};
+
 	chkLateLoaded();
 
 	
